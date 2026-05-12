@@ -3,7 +3,7 @@
 <package format="3">
   <name>autonomous_parking</name>
   <version>0.0.1</version>
-  <description>Autonomous parking simulation with TurtleBot3 in a parking lot environment.</description>
+  <description>Autonomous parking simulation with ego_hatchback in a parking lot environment.</description>
   <maintainer email="estelle0329@ewha.ac.kr">Yoonji Lee</maintainer>
   <license>Apache-2.0</license>
 

@@ -127,19 +127,20 @@ ros2 launch autonomous_parking world_only.launch.py
 **상태 기계 흐름:**
 
 ```
-INIT → ENTER_LOT → OBS_DRIVE → OBS_WAIT → LANE_DRIVE → TURN_TO_SLOT → X_ALIGN → PARK_FORWARD → DONE
+INIT → ENTER_LOT → OBS_DRIVE → OBS_YAW → OBS_WAIT → LANE_DRIVE → TURN_TO_SLOT → X_ALIGN → PARK_FORWARD → DONE
 ```
 
 | 상태 | 설명 |
 |------|------|
 | `INIT` | 첫 odom 수신 대기 |
 | `ENTER_LOT` | 주차장 입구(-10.5, 0.0)까지 이동 |
-| `OBS_DRIVE` | 관찰 포인트(obs_1, obs_2)까지 이동 |
-| `OBS_WAIT` | vision_node 스캔 후 decision_node의 슬롯 선택 대기 (타임아웃 10초) |
+| `OBS_DRIVE` | 관찰 포인트(obs_1, obs_2) 위치까지 이동 |
+| `OBS_YAW` | 관찰 포인트 도달 후 지정 방향(yaw=0.0)으로 제자리 회전 |
+| `OBS_WAIT` | vision_node 스캔 트리거 발사 후 decision_node의 슬롯 선택 대기 (타임아웃 10초) |
 | `LANE_DRIVE` | y=0 레인을 따라 목표 슬롯 x좌표까지 이동 |
 | `TURN_TO_SLOT` | 슬롯 반대 방향으로 회전 (후방주차 준비) |
-| `X_ALIGN` | 회전 후 슬롯 중심 x에 정렬 |
-| `PARK_FORWARD` | **후진**으로 슬롯 진입; 목표 깊이 도달 + ROI 내부 진입 시 완료 |
+| `X_ALIGN` | 회전 후 슬롯 중심 x에 정렬 (후진 미세 이동) |
+| `PARK_FORWARD` | **후진**으로 슬롯 진입; LiDAR 방지턱 감지 또는 목표 깊이+ROI 진입 시 완료 |
 | `DONE` | 정지 유지 |
 
 **토픽**
@@ -223,12 +224,12 @@ INIT → ENTER_LOT → OBS_DRIVE → OBS_WAIT → LANE_DRIVE → TURN_TO_SLOT �
 - **사전 점유**: A4, A7, B3, B6
 
 ```
-     A1   A2   A3   A4   A7   A8
-     HC   HC   GN  [GN] GN  [GN] GN   GN
- ←━━━━━━━━━━━━━━━ 레인 (y≈0) ━━━━━━━━━━━━━━━→ 입구(-12,0)
-     HC   HC   GN   GN  [GN] GN  [GN] GN
-     B1   B2   B3   B4   B5   B6   B7   B8
-                   HC = 장애인 전용, GN = 일반, [...] = 점유
+      A1   A2   A3   A4   A5   A6   A7   A8
+North  HC   HC   GN  [GN]  GN   GN  [GN]  GN
+      ←━━━━━━━━━━━━━━ 레인 (y≈0) ━━━━━━━━━━━━━━━→ 입구(-12,0)
+South  HC   HC  [GN]  GN   GN  [GN]  GN   GN
+       B1   B2   B3   B4   B5   B6   B7   B8
+                 HC = 장애인 전용, GN = 일반, [...] = 점유(사전 배치)
 ```
 
 ---
