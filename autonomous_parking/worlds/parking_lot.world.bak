@@ -225,117 +225,123 @@
       <link name="link"><visual name="v"><geometry><box><size>22.4 0.08 0.002</size></box></geometry>
       <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual></link></model>
 
-<!-- ============================================ -->
+    <!-- ============================================ -->
     <!--     HANDICAPPED SLOT MARKERS (ISA texture)   -->
     <!-- ============================================ -->
 
-    <model name="isa_a1">
-      <static>true</static>
-      <pose>-9.8 5.5 0.003 0 0 -1.5708</pose>
-      <link name="link">
-        <visual name="visual">
-          <geometry><box><size>1.5 1.5 0.002</size></box></geometry>
-          <material>
-            <script>
-              <uri>file://media/materials/scripts/isa_marker.material</uri>
-              <uri>file://media/materials/textures/</uri>
-              <name>ISAMarker/Diffuse</name>
-            </script>
-          </material>
-        </visual>
-      </link>
-    </model>
+    <include>
+      <uri>model://isa_marker</uri>
+      <pose>-9.8 6.8 0.003 0 0 -1.5708</pose>
+      <name>isa_a1</name>
+    </include>
 
-    <model name="isa_a2">
-      <static>true</static>
-      <pose>-7.0 5.5 0.003 0 0 -1.5708</pose>
-      <link name="link">
-        <visual name="visual">
-          <geometry><box><size>1.5 1.5 0.002</size></box></geometry>
-          <material>
-            <script>
-              <uri>file://media/materials/scripts/isa_marker.material</uri>
-              <uri>file://media/materials/textures/</uri>
-              <name>ISAMarker/Diffuse</name>
-            </script>
-          </material>
-        </visual>
-      </link>
-    </model>
+    <include>
+      <uri>model://isa_marker</uri>
+      <pose>-7.0 6.8 0.003 0 0 -1.5708</pose>
+      <name>isa_a2</name>
+    </include>
 
-    <model name="isa_b1">
-      <static>true</static>
-      <pose>-9.8 -5.5 0.003 0 0 1.5708</pose>
-      <link name="link">
-        <visual name="visual">
-          <geometry><box><size>1.5 1.5 0.002</size></box></geometry>
-          <material>
-            <script>
-              <uri>file://media/materials/scripts/isa_marker.material</uri>
-              <uri>file://media/materials/textures/</uri>
-              <name>ISAMarker/Diffuse</name>
-            </script>
-          </material>
-        </visual>
-      </link>
-    </model>
+    <include>
+      <uri>model://isa_marker</uri>
+      <pose>-9.8 -6.8 0.003 0 0 1.5708</pose>
+      <name>isa_b1</name>
+    </include>
 
-    <model name="isa_b2">
-      <static>true</static>
-      <pose>-7.0 -5.5 0.003 0 0 1.5708</pose>
-      <link name="link">
-        <visual name="visual">
-          <geometry><box><size>1.5 1.5 0.002</size></box></geometry>
-          <material>
-            <script>
-              <uri>file://media/materials/scripts/isa_marker.material</uri>
-              <uri>file://media/materials/textures/</uri>
-              <name>ISAMarker/Diffuse</name>
-            </script>
-          </material>
-        </visual>
-      </link>
-    </model>
+    <include>
+      <uri>model://isa_marker</uri>
+      <pose>-7.0 -6.8 0.003 0 0 1.5708</pose>
+      <name>isa_b2</name>
+    </include>
 
 
     <!-- ============================================ -->
-    <!--         OCCUPIED VEHICLES (4 hatchbacks)     -->
-    <!--   A4 (x=-1.4), A7 (x=7.0)                    -->
-    <!--   B3 (x=-4.2), B6 (x=4.2)                    -->
-    <!--   yaw = -pi/2 for Row A, +pi/2 for Row B     -->
+    <!--           OCCUPIED VEHICLES (4 cars)         -->
+    <!--   A4 (x=-1.4), A7 (x=7.0)                   -->
+    <!--   B3 (x=-4.2), B6 (x=4.2)                   -->
     <!-- ============================================ -->
 
-    <!-- Car in slot A4 (red hatchback) -->
-    <include>
-      <uri>model://hatchback_red</uri>
-      <name>car_a4</name>
-      <pose>-1.4 6.8 0 0 0 -1.5708</pose>
+    <!-- Car in slot A4 (red sedan) -->
+    <model name="car_a4">
       <static>true</static>
-    </include>
+      <pose>-1.4 6.25 0.6 0 0 0</pose>
+      <link name="link">
+        <!-- Car body -->
+        <visual name="body">
+          <pose>0 0 0 0 0 0</pose>
+          <geometry><box><size>1.8 4.0 1.0</size></box></geometry>
+          <material><ambient>0.8 0.1 0.1 1</ambient><diffuse>0.9 0.15 0.15 1</diffuse></material>
+        </visual>
+        <!-- Car roof -->
+        <visual name="roof">
+          <pose>0 0 0.55 0 0 0</pose>
+          <geometry><box><size>1.5 2.0 0.4</size></box></geometry>
+          <material><ambient>0.7 0.08 0.08 1</ambient><diffuse>0.8 0.1 0.1 1</diffuse></material>
+        </visual>
+        <collision name="collision">
+          <geometry><box><size>1.8 4.0 1.2</size></box></geometry>
+        </collision>
+      </link>
+    </model>
 
-    <!-- Car in slot A7 (blue hatchback) -->
-    <include>
-      <uri>model://hatchback_blue</uri>
-      <name>car_a7</name>
-      <pose>7.0 6.8 0 0 0 -1.5708</pose>
+    <!-- Car in slot A7 (blue SUV) -->
+    <model name="car_a7">
       <static>true</static>
-    </include>
+      <pose>7.0 6.25 0.7 0 0 0</pose>
+      <link name="link">
+        <visual name="body">
+          <geometry><box><size>1.9 4.2 1.2</size></box></geometry>
+          <material><ambient>0.1 0.2 0.6 1</ambient><diffuse>0.15 0.25 0.7 1</diffuse></material>
+        </visual>
+        <visual name="roof">
+          <pose>0 0 0.6 0 0 0</pose>
+          <geometry><box><size>1.6 2.2 0.4</size></box></geometry>
+          <material><ambient>0.08 0.15 0.5 1</ambient><diffuse>0.1 0.2 0.6 1</diffuse></material>
+        </visual>
+        <collision name="collision">
+          <geometry><box><size>1.9 4.2 1.4</size></box></geometry>
+        </collision>
+      </link>
+    </model>
 
-    <!-- Car in slot B3 (regular hatchback) -->
-    <include>
-      <uri>model://hatchback</uri>
-      <name>car_b3</name>
-      <pose>-4.2 -6.8 0 0 0 1.5708</pose>
+    <!-- Car in slot B3 (white sedan) -->
+    <model name="car_b3">
       <static>true</static>
-    </include>
+      <pose>-4.2 -6.25 0.6 0 0 0</pose>
+      <link name="link">
+        <visual name="body">
+          <geometry><box><size>1.8 4.0 1.0</size></box></geometry>
+          <material><ambient>0.9 0.9 0.9 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material>
+        </visual>
+        <visual name="roof">
+          <pose>0 0 0.55 0 0 0</pose>
+          <geometry><box><size>1.5 2.0 0.4</size></box></geometry>
+          <material><ambient>0.85 0.85 0.85 1</ambient><diffuse>0.9 0.9 0.9 1</diffuse></material>
+        </visual>
+        <collision name="collision">
+          <geometry><box><size>1.8 4.0 1.2</size></box></geometry>
+        </collision>
+      </link>
+    </model>
 
-    <!-- Car in slot B6 (red hatchback) -->
-    <include>
-      <uri>model://hatchback_red</uri>
-      <name>car_b6</name>
-      <pose>4.2 -6.8 0 0 0 1.5708</pose>
+    <!-- Car in slot B6 (black hatchback) -->
+    <model name="car_b6">
       <static>true</static>
-    </include>
+      <pose>4.2 -6.25 0.55 0 0 0</pose>
+      <link name="link">
+        <visual name="body">
+          <geometry><box><size>1.7 3.8 0.9</size></box></geometry>
+          <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.15 0.15 0.15 1</diffuse></material>
+        </visual>
+        <visual name="roof">
+          <pose>0 -0.2 0.5 0 0 0</pose>
+          <geometry><box><size>1.4 2.0 0.35</size></box></geometry>
+          <material><ambient>0.08 0.08 0.08 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material>
+        </visual>
+        <collision name="collision">
+          <geometry><box><size>1.7 3.8 1.1</size></box></geometry>
+        </collision>
+      </link>
+    </model>
 
     <!-- ============================================ -->
     <!--          SLOT NUMBER MARKERS (yellow)        -->
@@ -343,54 +349,54 @@
     <!-- ============================================ -->
 
     <!-- Row A slot numbers -->
-    <model name="num_a1"><static>true</static><pose>-9.8 8.0 0.002 0 0 0</pose>
+    <model name="num_a1"><static>true</static><pose>-9.8 4.2 0.002 0 0 0</pose>
       <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
       <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_a2"><static>true</static><pose>-7.0 8.0 0.002 0 0 0</pose>
+    <model name="num_a2"><static>true</static><pose>-7.0 4.2 0.002 0 0 0</pose>
       <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
       <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_a3"><static>true</static><pose>-4.2 8.0 0.002 0 0 0</pose>
+    <model name="num_a3"><static>true</static><pose>-4.2 4.2 0.002 0 0 0</pose>
       <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
       <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_a4"><static>true</static><pose>-1.4 8.0 0.002 0 0 0</pose>
+    <model name="num_a4"><static>true</static><pose>-1.4 4.2 0.002 0 0 0</pose>
       <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
       <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_a5"><static>true</static><pose>1.4 8.0 0.002 0 0 0</pose>
+    <model name="num_a5"><static>true</static><pose>1.4 4.2 0.002 0 0 0</pose>
       <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
       <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_a6"><static>true</static><pose>4.2 8.0 0.002 0 0 0</pose>
+    <model name="num_a6"><static>true</static><pose>4.2 4.2 0.002 0 0 0</pose>
       <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
       <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_a7"><static>true</static><pose>7.0 8.0 0.002 0 0 0</pose>
+    <model name="num_a7"><static>true</static><pose>7.0 4.2 0.002 0 0 0</pose>
       <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
       <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_a8"><static>true</static><pose>9.8 8.0 0.002 0 0 0</pose>
+    <model name="num_a8"><static>true</static><pose>9.8 4.2 0.002 0 0 0</pose>
       <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
       <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
 
     <!-- Row B slot numbers -->
-    <model name="num_b1"><static>true</static><pose>-9.8 -8.0 0.002 0 0 0</pose>
+    <model name="num_b1"><static>true</static><pose>-9.8 -4.2 0.002 0 0 0</pose>
       <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
       <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_b2"><static>true</static><pose>-7.0 -8.0 0.002 0 0 0</pose>
+    <model name="num_b2"><static>true</static><pose>-7.0 -4.2 0.002 0 0 0</pose>
       <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
       <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_b3"><static>true</static><pose>-4.2 -8.0 0.002 0 0 0</pose>
+    <model name="num_b3"><static>true</static><pose>-4.2 -4.2 0.002 0 0 0</pose>
       <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
       <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_b4"><static>true</static><pose>-1.4 -8.0 0.002 0 0 0</pose>
+    <model name="num_b4"><static>true</static><pose>-1.4 -4.2 0.002 0 0 0</pose>
       <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
       <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_b5"><static>true</static><pose>1.4 -8.0 0.002 0 0 0</pose>
+    <model name="num_b5"><static>true</static><pose>1.4 -4.2 0.002 0 0 0</pose>
       <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
       <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_b6"><static>true</static><pose>4.2 -8.0 0.002 0 0 0</pose>
+    <model name="num_b6"><static>true</static><pose>4.2 -4.2 0.002 0 0 0</pose>
       <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
       <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_b7"><static>true</static><pose>7.0 -8.0 0.002 0 0 0</pose>
+    <model name="num_b7"><static>true</static><pose>7.0 -4.2 0.002 0 0 0</pose>
       <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
       <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_b8"><static>true</static><pose>9.8 -8.0 0.002 0 0 0</pose>
+    <model name="num_b8"><static>true</static><pose>9.8 -4.2 0.002 0 0 0</pose>
       <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
       <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
 
