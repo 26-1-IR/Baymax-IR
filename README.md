@@ -6,6 +6,21 @@
 
 ---
 
+## 목차
+
+- [환경](#환경)
+- [빠른 시작](#빠른-시작)
+- [패키지 구조](#패키지-구조)
+- [빌드](#빌드)
+- [런치 파일](#런치-파일)
+- [노드 설명](#노드-설명)
+- [센서 구성 (ego_hatchback)](#센서-구성-egohatchback)
+- [슬롯 구성 (slot_metadatayaml)](#슬롯-구성-slot_metadatayaml)
+- [YOLO 학습](#yolo-학습)
+- [자주 쓰는 명령](#자주-쓰는-명령)
+
+---
+
 ## 환경
 
 | 항목 | 버전 |
@@ -15,6 +30,19 @@
 | 시뮬레이터 | Gazebo Classic 11 |
 | Python | 3.10 |
 | 비전 (선택) | YOLOv8 (ultralytics) |
+
+---
+
+## 빠른 시작
+
+```bash
+cd ~/IL
+colcon build --packages-select autonomous_parking
+source ~/IL/install/setup.bash
+ros2 launch autonomous_parking parking_sim.launch.py user_credential:=general
+```
+
+> YOLO 모델을 사용하지 않으면 `slot_metadata.yaml` 기반 fallback으로 동작합니다.
 
 ---
 
@@ -234,7 +262,7 @@ South  HC   HC  [GN]  GN   GN  [GN]  GN   GN
 
 ---
 
-## YOLO 학습 (김민정 담당)
+## YOLO 학습
 
 ```bash
 # 1. 의존성 설치
