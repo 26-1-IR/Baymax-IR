@@ -19,11 +19,12 @@ install(DIRECTORY
   DESTINATION share/${PROJECT_NAME}
 )
 
-# Python 스크립트가 있으면
-install(DIRECTORY
-  scripts
-  DESTINATION share/${PROJECT_NAME}
-  USE_SOURCE_PERMISSIONS
+# Python 스크립트 (ros2 run으로 실행 가능하게 lib/ 에 설치)
+install(PROGRAMS
+  scripts/parking_node.py
+  scripts/vision_node.py
+  scripts/decision_node.py
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 ament_package()

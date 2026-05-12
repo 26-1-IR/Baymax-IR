@@ -444,5 +444,13 @@
       <link name="link"><visual name="v"><geometry><box><size>2.7 4.4 0.0008</size></box></geometry>
       <material><ambient>0.1 0.35 0.75 1</ambient><diffuse>0.15 0.5 1.0 1</diffuse></material></visual></link></model>
 
+  
+    <!-- EGO VEHICLE (controllable hatchback) -->
+    <include>
+      <uri>model://ego_hatchback</uri>
+      <name>ego</name>
+      <pose>-12.0 0 0.05 0 0 0</pose>
+    </include>
+
   </world>
 </sdf>

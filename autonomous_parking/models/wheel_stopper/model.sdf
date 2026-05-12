@@ -57,6 +57,21 @@
           <diffuse>1.0 0.9 0.1 1</diffuse>
         </material>
       </visual>
+
+      <!-- LiDAR 반사체: 수평 LiDAR(z=1.5m)에 방지턱이 감지되도록 같은 높이에 배치 -->
+      <collision name="lidar_reflector_col">
+        <pose>0 0 1.45 0 0 0</pose>
+        <geometry><box><size>1.8 0.06 0.08</size></box></geometry>
+      </collision>
+      <visual name="lidar_reflector_vis">
+        <pose>0 0 1.45 0 0 0</pose>
+        <geometry><box><size>1.8 0.06 0.08</size></box></geometry>
+        <material>
+          <ambient>1.0 0.85 0.0 1</ambient>
+          <diffuse>1.0 0.9 0.1 1</diffuse>
+          <emissive>0.4 0.3 0.0 1</emissive>
+        </material>
+      </visual>
     </link>
   </model>
 </sdf>
