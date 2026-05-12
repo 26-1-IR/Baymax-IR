@@ -231,7 +231,7 @@
 
     <model name="isa_a1">
       <static>true</static>
-      <pose>-9.8 5.5 0.003 0 0 -1.5708</pose>
+      <pose>-9.8 5.5 0.008 0 0 1.5708</pose>
       <link name="link">
         <visual name="visual">
           <geometry><box><size>1.5 1.5 0.002</size></box></geometry>
@@ -248,7 +248,7 @@
 
     <model name="isa_a2">
       <static>true</static>
-      <pose>-7.0 5.5 0.003 0 0 -1.5708</pose>
+      <pose>-7.0 5.5 0.008 0 0 1.5708</pose>
       <link name="link">
         <visual name="visual">
           <geometry><box><size>1.5 1.5 0.002</size></box></geometry>
@@ -265,7 +265,7 @@
 
     <model name="isa_b1">
       <static>true</static>
-      <pose>-9.8 -5.5 0.003 0 0 1.5708</pose>
+      <pose>-9.8 -5.5 0.008 0 0 -1.5708</pose>
       <link name="link">
         <visual name="visual">
           <geometry><box><size>1.5 1.5 0.002</size></box></geometry>
@@ -282,7 +282,7 @@
 
     <model name="isa_b2">
       <static>true</static>
-      <pose>-7.0 -5.5 0.003 0 0 1.5708</pose>
+      <pose>-7.0 -5.5 0.008 0 0 -1.5708</pose>
       <link name="link">
         <visual name="visual">
           <geometry><box><size>1.5 1.5 0.002</size></box></geometry>
@@ -343,56 +343,106 @@
     <!-- ============================================ -->
 
     <!-- Row A slot numbers -->
-    <model name="num_a1"><static>true</static><pose>-9.8 8.0 0.002 0 0 0</pose>
-      <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
-      <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_a2"><static>true</static><pose>-7.0 8.0 0.002 0 0 0</pose>
-      <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
-      <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_a3"><static>true</static><pose>-4.2 8.0 0.002 0 0 0</pose>
-      <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
-      <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_a4"><static>true</static><pose>-1.4 8.0 0.002 0 0 0</pose>
-      <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
-      <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_a5"><static>true</static><pose>1.4 8.0 0.002 0 0 0</pose>
-      <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
-      <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_a6"><static>true</static><pose>4.2 8.0 0.002 0 0 0</pose>
-      <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
-      <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_a7"><static>true</static><pose>7.0 8.0 0.002 0 0 0</pose>
-      <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
-      <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_a8"><static>true</static><pose>9.8 8.0 0.002 0 0 0</pose>
-      <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
-      <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
+    <include>
+      <uri>model://wheel_stopper</uri>
+      <name>num_a1</name>
+      <pose>-9.8 8.0 0.05 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://wheel_stopper</uri>
+      <name>num_a2</name>
+      <pose>-7.0 8.0 0.05 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://wheel_stopper</uri>
+      <name>num_a3</name>
+      <pose>-4.2 8.0 0.05 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://wheel_stopper</uri>
+      <name>num_a4</name>
+      <pose>-1.4 8.0 0.05 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://wheel_stopper</uri>
+      <name>num_a5</name>
+      <pose>1.4 8.0 0.05 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://wheel_stopper</uri>
+      <name>num_a6</name>
+      <pose>4.2 8.0 0.05 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://wheel_stopper</uri>
+      <name>num_a7</name>
+      <pose>7.0 8.0 0.05 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://wheel_stopper</uri>
+      <name>num_a8</name>
+      <pose>9.8 8.0 0.05 0 0 0</pose>
+    </include>
 
     <!-- Row B slot numbers -->
-    <model name="num_b1"><static>true</static><pose>-9.8 -8.0 0.002 0 0 0</pose>
-      <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
-      <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_b2"><static>true</static><pose>-7.0 -8.0 0.002 0 0 0</pose>
-      <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
-      <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_b3"><static>true</static><pose>-4.2 -8.0 0.002 0 0 0</pose>
-      <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
-      <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_b4"><static>true</static><pose>-1.4 -8.0 0.002 0 0 0</pose>
-      <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
-      <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_b5"><static>true</static><pose>1.4 -8.0 0.002 0 0 0</pose>
-      <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
-      <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_b6"><static>true</static><pose>4.2 -8.0 0.002 0 0 0</pose>
-      <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
-      <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_b7"><static>true</static><pose>7.0 -8.0 0.002 0 0 0</pose>
-      <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
-      <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
-    <model name="num_b8"><static>true</static><pose>9.8 -8.0 0.002 0 0 0</pose>
-      <link name="l"><visual name="v"><geometry><box><size>1.0 0.3 0.002</size></box></geometry>
-      <material><ambient>0.9 0.8 0.0 1</ambient><diffuse>1.0 0.9 0.1 1</diffuse></material></visual></link></model>
+    <include>
+      <uri>model://wheel_stopper</uri>
+      <name>num_b1</name>
+      <pose>-9.8 -8.0 0.05 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://wheel_stopper</uri>
+      <name>num_b2</name>
+      <pose>-7.0 -8.0 0.05 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://wheel_stopper</uri>
+      <name>num_b3</name>
+      <pose>-4.2 -8.0 0.05 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://wheel_stopper</uri>
+      <name>num_b4</name>
+      <pose>-1.4 -8.0 0.05 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://wheel_stopper</uri>
+      <name>num_b5</name>
+      <pose>1.4 -8.0 0.05 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://wheel_stopper</uri>
+      <name>num_b6</name>
+      <pose>4.2 -8.0 0.05 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://wheel_stopper</uri>
+      <name>num_b7</name>
+      <pose>7.0 -8.0 0.05 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://wheel_stopper</uri>
+      <name>num_b8</name>
+      <pose>9.8 -8.0 0.05 0 0 0</pose>
+    </include>
+
+  
+    <!-- BLUE HANDICAPPED SLOT FLOORS -->
+    <model name="blue_floor_a1"><static>true</static><pose>-9.8 6.25 0.005 0 0 0</pose>
+      <link name="link"><visual name="v"><geometry><box><size>2.7 4.4 0.0008</size></box></geometry>
+      <material><ambient>0.1 0.35 0.75 1</ambient><diffuse>0.15 0.5 1.0 1</diffuse></material></visual></link></model>
+
+    <model name="blue_floor_a2"><static>true</static><pose>-7.0 6.25 0.005 0 0 0</pose>
+      <link name="link"><visual name="v"><geometry><box><size>2.7 4.4 0.0008</size></box></geometry>
+      <material><ambient>0.1 0.35 0.75 1</ambient><diffuse>0.15 0.5 1.0 1</diffuse></material></visual></link></model>
+
+    <model name="blue_floor_b1"><static>true</static><pose>-9.8 -6.25 0.005 0 0 0</pose>
+      <link name="link"><visual name="v"><geometry><box><size>2.7 4.4 0.0008</size></box></geometry>
+      <material><ambient>0.1 0.35 0.75 1</ambient><diffuse>0.15 0.5 1.0 1</diffuse></material></visual></link></model>
+
+    <model name="blue_floor_b2"><static>true</static><pose>-7.0 -6.25 0.005 0 0 0</pose>
+      <link name="link"><visual name="v"><geometry><box><size>2.7 4.4 0.0008</size></box></geometry>
+      <material><ambient>0.1 0.35 0.75 1</ambient><diffuse>0.15 0.5 1.0 1</diffuse></material></visual></link></model>
 
   </world>
 </sdf>

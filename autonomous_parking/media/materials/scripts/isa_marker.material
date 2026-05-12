@@ -4,9 +4,14 @@ material ISAMarker/Diffuse
   {
     pass
     {
+      scene_blend alpha_blend
+      depth_write off
+
       texture_unit
       {
         texture isa_marker.png
+        filtering trilinear
+        colour_op_ex modulate src_manual src_texture 1.0 1.0 1.0
       }
     }
   }
